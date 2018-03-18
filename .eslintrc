@@ -1,0 +1,32 @@
+{
+  "parser": "babel-eslint",
+  "env": {
+    "browser": true,
+    "es6": true,
+    "jest": true,
+    "node": true
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:jest/recommended"
+  ],
+  "plugins": [
+    "react"
+  ],
+  "rules": {
+    "eqeqeq": ["error", "allow-null"],
+    "indent": ["error", 2, {"SwitchCase": 1, "VariableDeclarator": {"var": 2, "let": 2, "const": 3}}],
+    "keyword-spacing": ["error"],
+    "linebreak-style": ["error", "unix"],
+    "no-trailing-spaces": ["error"],
+    "quotes": ["error", "single"],
+    "react/display-name": ["error", {"ignoreTranspilerName": true}],
+    "react/no-array-index-key": "error",
+    "react/prefer-es6-class": "error",
+    "react/prefer-stateless-function": "error",
+    "react/require-default-props": "error",
+    "semi": ["error", "never"],
+    "space-before-function-paren": ["error", "never"]
+  }
+}
