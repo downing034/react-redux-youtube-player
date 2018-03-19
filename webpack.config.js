@@ -1,13 +1,24 @@
+const webpack = require('webpack')
+const path = require('path')
+
 module.exports = {
   entry: './src/index.js',
 
-  performance: { hints: false },
+  resolve: {
+    extensions: ['.js','.jsx']
+  },
+
+
 
   output: {
-    path: __dirname,
     filename: 'bundle.js',
+    path: path.join(__dirname, 'dist'),
+    sourceMapFilename: 'bundle.map.js',
     publicPath: '/'
   },
+
+  devtool: '#source-map',
+
   module: {
 
     rules: [
@@ -17,18 +28,38 @@ module.exports = {
         query: {
           presets: ['react', 'es2015', 'stage-1']
         }
+      },
+      {
+        test: /\.(css)$/,
+        use: [
+          { loader: 'style-loader' },
+          { loader: 'css-loader' }
+        ]
+      },
+      {
+        test: /\.(jsx|es6)$/,
+        exclude: /node_modules/,
+        use: [
+          { loader: 'jsLoaders' },
+          { loader: 'babel-loader' },
+          { loader: 'eslint-loader' }
+        ]
+      },
+      {
+        test: /\.(png|jpg|gif|svg|eot|ttf|woff|woff2)$/,
+        use: [
+          { loader: 'url-loader',
+              options: { limit: 10000 }
+          }
+        ]
       }
 
-    ]
-  },
-  resolve: {
-    extensions: [
-      '.js',
-      '.jsx'
     ]
   },
   devServer: {
     historyApiFallback: true,
     contentBase: './'
   }
-};
+}
+
+// loaders: [{ test: /\.css$/, loader: 'style-loader!css-loader' }]
