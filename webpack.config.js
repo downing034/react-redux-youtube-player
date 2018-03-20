@@ -37,6 +37,25 @@ module.exports = {
         ]
       },
       {
+        test: /\.(scss)$/,
+        use: [
+          { loader: 'style-loader' },
+          { loader: 'css-loader' },
+          {
+            loader: 'postcss-loader',
+            options: {
+              plugins() {
+                return [
+                  precss,
+                  autoprefixer,
+                ];
+              },
+            },
+          },
+          { loader: 'sass-loader' },
+        ]
+      },
+      {
         test: /\.(jsx|es6)$/,
         exclude: /node_modules/,
         use: [
