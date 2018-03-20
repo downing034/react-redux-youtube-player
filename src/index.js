@@ -7,6 +7,7 @@ import VideoList            from './components/video_list'
 import VideoDetail          from './components/video_detail'
 import YTSearch             from 'youtube-api-search'
 import 'bootstrap/dist/css/bootstrap.css'
+import '../style/style.css'
 const API_KEY = 'AIzaSyCplF32XSyQeCNNe5KfZRTk1oEee5bTNjU'
 
 class App extends Component {
@@ -18,7 +19,7 @@ class App extends Component {
       videos: [],
       selectedVideo: null
     }
-    this.videoSearch('falling in reverse')
+    this.videoSearch('NCAA March Madness')
   }
 
   videoSearch(term) {
