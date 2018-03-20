@@ -10,10 +10,10 @@ describe('Header', () => {
 
     const heading = wrapper.find('h1')
     expect(heading).toHaveClassName('display-4')
-    expect(heading).toHaveText('React Redux Youtube Player')
+    expect(heading).toHaveText('React Youtube Player')
 
     const paragraph = wrapper.find('p')
     expect(paragraph).toHaveClassName('lead')
-    expect(paragraph).toHaveText("This is a simple Youtube video search tool built using React, Redux, and Youtube's API.")
+    expect(paragraph).toHaveText("This is a simple Youtube video search tool built using React and Youtube's API.")
   })
 })
